@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useRef, useState } from 'react'
 
 
@@ -153,7 +154,7 @@ const Pollask = () => {
           ))}
        
       </div>
-      <div className='absolute left-0 bottom-0 w-[1570px] h-[68px] top-[962px] bg-[#008F9C] text-[#FFFFFF] text-center'>
+      <div className='absolute left-0 bottom-0 top-[1092px]  w-[1840px] h-[68px]  bg-[#008F9C] text-[#FFFFFF] text-center'>
               {currentQuestionIndex + 4 < questions.length && (
                   <button className='text-[32px] font-[600]' onClick={handleNext}>Next</button>
               )}

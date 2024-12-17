@@ -1,4 +1,4 @@
-
+"use client"
 import React, { useState, useEffect, useRef } from 'react'
 import Step from './step';
 import Process from './step_proccess';
@@ -64,12 +64,15 @@ const Stepper = ({ steps, currentStepNumber, handleClick}) => {
 	
 
 	useEffect(() =>{
-		console.log(steps, "steps")
+	 console.log(currentStepNumber , "currentStepNumber")
 	 },[currentStepNumber])
 	return (
 		<div className=' flex flex-row'>
-		 <div className='h-[1160px]  w-[560px] '>
-			{currentStepNumber === 1 ? <img src='/image/questions.png' className='h-[1160px]  w-[560px] ' /> : currentStepNumber ===2 ? <img src='/image/step2.png' className='h-[1024px]  w-[560px] ' /> : <img src='/image/step3.png' className='h-[1024px]  w-[560px] ' />  }
+		  <div className='h-[1160px]  w-[560px] '>
+			{currentStepNumber === 1 ?
+			 <img src='/image/questions.png' className='h-[1160px]  w-[560px] ' /> : 
+			 currentStepNumber ===2 ? <img src='/image/step2.png' className='h-[1160px]  w-[560px] ' /> : 
+			 <img src='/image/step3.png' className='h-[1160px]  w-[560px] ' />  }
           </div>
 		  <div className='flex flex-col'>
 		  <Process 
@@ -78,7 +81,8 @@ const Stepper = ({ steps, currentStepNumber, handleClick}) => {
 				handleClick={handleClick}
 			 />
 		    <div className='flex flex-col '>
-				<Step   currentStepNumber={currentStepNumber}  />
+				<Step 	handleClick={handleClick} 
+				  currentStepNumber={currentStepNumber}  />
 			</div>
 		  </div>
 			</div>

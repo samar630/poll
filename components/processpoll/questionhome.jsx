@@ -24,7 +24,7 @@ const Questionshome = () => {
   }
   useEffect(() =>{
     prient(                                                                                                                                                                                   )
-  },)
+  },[currentStep])
   return (
    
    <div className=''>  

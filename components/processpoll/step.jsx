@@ -6,23 +6,20 @@ import Pollask from './pollask';
 import Finish from './finish';
 
 const Step = (props) => {
-   
-  
-  useEffect(() =>{
-  console.log(props.currentStepNumber, "props")
-  },[props.currentStepNumber])
+
+useEffect(() =>{
+
+},[props.currentStepNumber, "props.currentStepNumber11"])
  
    
   return (
     <div className='flex flex-col '> 
-       {props.currentStepNumber === 1 ?
-           <Info currentStepNumber={props?.currentStepNumber}/> :
-              props.currentStepNumber === 2 ?
-              <Pollask
-              currentStepNumber={props?.currentStepNumber}
-              /> : <Finish />
+    {props.currentStepNumber === 1 ? 
+    <Info currentStepNumber={props.currentStepNumber} handleClick={props.handleClick()} /> : 
+    props.currentStepNumber === 2 ? 
+     <Pollask />  :  
+     <Finish />  }
  
-       }  
     </div>
   )
 }

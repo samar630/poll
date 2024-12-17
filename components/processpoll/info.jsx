@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation';
-const Info = (currentStepNumber) => {
+const Info = ( handleClick, currentStepNumber ) => {
   const router = useRouter(); 
  const [values, setValues] = useState({
     name: "",
@@ -16,17 +16,13 @@ const Info = (currentStepNumber) => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }
 
-  const [steps, setSteps] = useState(currentStepNumber)
+
   const handlesumbit = async (e) =>{
     e.preventDefault();
     console.log(values,"valuessssss")
-    setSteps(2)
-    currentStepNumber === setSteps
-    console.log(currentStepNumber,"currentStepNumber")
+   
   }
-  useEffect(() =>{
-    console.log(steps, "steps")
-   },[steps])
+
   return (
     <>
    <form onSubmit={handlesumbit}  className='flex flex-col'>
@@ -96,7 +92,7 @@ const Info = (currentStepNumber) => {
     </div>
      </div>
       </div> 
-    <button className='h-[68px] bg-[#008F9C] absolute top-[962px]  w-[1570px]'>التالي</button>
+    <button onClick={() => handleClick("next")} className='h-[68px] bg-[#008F9C] absolute top-[1092px]  w-[1840px]'>التالي</button>
     </form>
     </>
   
