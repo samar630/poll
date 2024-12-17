@@ -1,4 +1,5 @@
-import Formlogin from '../../components/formlogin'
+
+import Formlogin from '../../../components/formlogin'
 import React from 'react'
 
 const index = () => {
