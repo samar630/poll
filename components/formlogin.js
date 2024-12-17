@@ -3,8 +3,9 @@
 import { Postauthlogin } from '../redux/api/auth'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-
+import { useRouter } from 'next/navigation';
 const Formlogin = () => {
+   const router = useRouter(); 
   const [values, setValues] = useState({
     username: "",
     password:"",
@@ -14,14 +15,12 @@ const Formlogin = () => {
   }
  
   const dispatch = useDispatch()
-  const _login = (data) =>{
-    dispatch({type: "CREATE_LOGIN", data: values})
-  }
+
 const submitHandler = async (e) => {
   e.preventDefault();
   try{
-   
     dispatch(Postauthlogin(values))
+    router.push('/questions')
   }
   catch{
     console.log("fix")
