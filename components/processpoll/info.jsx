@@ -92,7 +92,7 @@ const Info = ( handleClick, currentStepNumber ) => {
     </div>
      </div>
       </div> 
-    <button onClick={() => handleClick("next")} className='h-[68px] bg-[#008F9C] absolute top-[1092px]  w-[1840px]'>التالي</button>
+    <button onClick={() => handleClick("next")} className='h-[68px] bg-[#008F9C] absolute top-[1092px]  w-[1840px] text-[32px] font-[600] text-white'>التالي</button>
     </form>
     </>
   

@@ -193,22 +193,18 @@ const initialQuestions  = {
         }
     ] 
 }
-
 const Pollask = () => {
     const [questions, setQuestions] = useState(initialQuestions.questions);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const handleOptionChange = (index, selectedOption) => {
       const updatedQuestions = [...questions];
       const currentQuestion = updatedQuestions[index];
-  
       currentQuestion.selectedAnswer = selectedOption;
       currentQuestion.points = currentQuestion.answers.find(answer => answer.text === selectedOption).points;
-  
       setQuestions(updatedQuestions);
     };
     const dispatch = useDispatch()
- 
-const submitHandler = async (e) => {
+    const submitHandler = async (e) => {
   e.preventDefault();
   try{
     dispatch(solvepoll(initialQuestions))
@@ -216,24 +212,18 @@ const submitHandler = async (e) => {
   catch{
     console.log("error solve")
   }
-}
-
-  const [currentQuestionIndexbutton, setCurrentQuestionIndexbutton] = useState(0);
-
-
-
-  const handleNext = () => {
+    }
+   const [currentQuestionIndexbutton, setCurrentQuestionIndexbutton] = useState(0);
+   const handleNext = () => {
       if (currentQuestionIndexbutton + 4 < initialQuestions.questions.length) {
         setCurrentQuestionIndexbutton(currentQuestionIndexbutton + 4);
       }
   };
-
   useEffect(() =>{
     console.log(initialQuestions, "initialQuestions")
    },[initialQuestions])
   return (
-    <>
-    
+    <> 
     <div className='relative w-[100%]'>
       <div className='w-[809px] h-[769px] top-[170px] left-[560px] absolute'>
           {questions.slice(currentQuestionIndex, currentQuestionIndex + 4).map((q, index) => (
