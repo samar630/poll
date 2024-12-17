@@ -1,9 +1,19 @@
+import Formlogin from "../../components/formlogin";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-     homes
+    <div className='flex flex-row h-full w-full'>
+    <div className='flex flex-row justify-center w-[492px] h-[1160px] text-white relative' style={{ backgroundImage: `url('/image/login.png')` }}>
+      <p className='text-[62.24px]
+      w-[373px] h-[117px] top-[832px] left-[50px]
+       font-[600] leading-[116pxs] absolute'>تسجيل دخول</p>
+       <p className='w-[89.06px] h-[34px] top-[973px]  Left-[191px] text-[#C9C9C9] absolute '>شرح بسيط</p>
     </div>
+    <div className=''>
+        <Formlogin/>
+    </div>
+    
+  </div>
   );
 }
