@@ -20,7 +20,7 @@ const submitHandler = async (e) => {
   e.preventDefault();
   try{
     dispatch(Postauthlogin(values))
-    router.push('/questions')
+    router.push('/manager')
   }
   catch{
     console.log("fix")

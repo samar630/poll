@@ -1,16 +1,107 @@
-import React from 'react'
+"use client"
+import { FetchPoll } from '../../redux/api/auth'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import Modal from '../processpoll/modal'
 
 const Managertable = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedQuestion, setSelectedQuestion] = useState(null);
+
+  const handleShowClick = (question) => {
+    setSelectedQuestion(question);
+    setIsModalOpen(true);
+    console.log(question,"question")
+  };
+   const dispatch = useDispatch()
+   const submitHandler = () => {
+     try{
+       dispatch(FetchPoll())  
+       console.log("loginnnnnnnnn")
+     }
+     catch{
+       console.log("fix")
+     }
+   }
+   useEffect( () => {
+    
+   },[])
+   const questions =[{
+    show : "عرض",
+    info:"معلومات",
+    percentage:"21.33%",
+    numberofquestion:"33",
+    nickname:"Kathryn Murphy"
+   },{
+    show : "عرض",
+    info:"معلومات",
+    percentage:"11.33%",
+    numberofquestion:"31",
+    nickname:"team Murphy"
+   },
+   {
+    show : "عرض",
+    info:"معلومات",
+    percentage:"21.33%",
+    numberofquestion:"33",
+    nickname:"Kathryn Murphy"
+   },{
+    show : "عرض",
+    info:"معلومات",
+    percentage:"11.33%",
+    numberofquestion:"31",
+    nickname:"team Murphy"
+   },
+   {
+    show : "عرض",
+    info:"معلومات",
+    percentage:"21.33%",
+    numberofquestion:"23",
+    nickname:"Samar Murphy"
+   },{
+    show : "عرض",
+    info:"معلومات",
+    percentage:"11.33%",
+    numberofquestion:"31",
+    nickname:"Samar Murphy"
+   },
+   {
+    show : "عرض",
+    info:"معلومات",
+    percentage:"21.33%",
+    numberofquestion:"23",
+    nickname:"Samar Murphy"
+   },{
+    show : "عرض",
+    info:"معلومات",
+    percentage:"11.33%",
+    numberofquestion:"31",
+    nickname:"Samar Murphy"
+   },
+   {
+    show : "عرض",
+    info:"معلومات",
+    percentage:"21.33%",
+    numberofquestion:"23",
+    nickname:"Samar Murphy"
+   },{
+    show : "عرض",
+    info:"معلومات",
+    percentage:"11.33%",
+    numberofquestion:"31",
+    nickname:"Samar Murphy"
+   },
+  ]
   return (
     <div className='flex flex-row w-full h-full relative'>
       <div className=''>
-        <img src='/image/imageoftable.png' className='w-[358.73px] h-[1030px]'/>
+        <img src='/image/imageoftable.png' className='w-[358.73px] h-[1160px]'/>
       </div>
      <div className='card'>
-          <div className='flex flex-col absolute top-[36px] left-[380px] '>
-        <div className='relative w-[737px] h-[44px]'>
-        <input placeholder='البحث' className='p-1 absolute text-right w-[737px] h-[44px] border-[1px] border-[#D7DBE7]  rounded-[28px] focus:border-[#D7DBE7] focus:outline-none' />
-        <img className=' absolute w-[16px] h-[16px] items-start mt-[1rem] ml-[1rem]' src='image/search.png' />
+        <div className='flex flex-col absolute top-[36px] left-[380px] '>
+         <div className='relative w-[737px] h-[44px]'>
+         <input placeholder='البحث' className='p-1 absolute text-right w-[737px] h-[44px] border-[1px] border-[#D7DBE7]  rounded-[28px] focus:border-[#D7DBE7] focus:outline-none' />
+         <img className=' absolute w-[16px] h-[16px] items-start mt-[1rem] ml-[1rem]' src='image/search.png' />
          </div> 
           </div>
           <div className='absolute top-[36] right-[10%] flex flex-row gap-[4rem] '>
@@ -72,71 +163,40 @@ const Managertable = () => {
             <table className="w-full divide-y divide-gray-200">
                 <thead className="">
                     <tr>
-                        <th className="px-6 py-3 text-left text-[12px] text-[#71778E] font-[400] uppercase tracking-wider">تفاصيل</th>
-                        <th className="px-6 py-3 text-left text-[12px] text-[#71778E] font-[400]  uppercase tracking-wider"> وصف بسيط</th>
-                        <th className="px-6 py-3 text-left text-[12px] text-[#71778E] font-[400]  uppercase tracking-wider">النتائج</th>
-                        <th className="px-6 py-3 text-left text-[12px] text-[#71778E] font-[400]  uppercase tracking-wider">عدد الأسئلة</th>
+                        <th className="px-[6rem] py-[1rem] text-left text-[12px] text-[#71778E] font-[400] uppercase tracking-wider">تفاصيل</th>
+                        <th className="px-[6rem] py-[1rem] text-left text-[12px] text-[#71778E] font-[400]  uppercase tracking-wider"> وصف بسيط</th>
+                        <th className="px-[6rem] py-[1rem] text-left text-[12px] text-[#71778E] font-[400]  uppercase tracking-wider">النتائج</th>
+                        <th className="px-[6rem] py-[1rem] text-left text-[12px] text-[#71778E] font-[400]  uppercase tracking-wider">عدد الأسئلة</th>
+                        <th className="px-[6rem] py-[1rem] text-left text-[12px] text-[#71778E] font-[400]  uppercase tracking-wider">الأسم</th>
                     </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#007B8D]">عرض</td>
-                        <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D] flex flex-row gap-1"><img src='image/pollgreen.png' className='w-[12px] h-[12px] mt-[2px]'/><span>21.33%</span></td>
-                        <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D]">Kathryn Murphy</td>
-                        <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D]">Kathryn Murphy</td>
-                    </tr>
-                    <tr>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#007B8D]">عرض</td>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D] flex flex-row gap-1"><img src='image/pollgreen.png' className='w-[12px] h-[12px] mt-[2px]'/><span>21.33%</span></td>
-                        <td className="px-6 py-4 whitespace-nowrap">Kathryn Murphy</td>
-                        <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D]">Kathryn Murphy</td>
-                    </tr>
-                    <tr>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#007B8D]">عرض</td>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D] flex flex-row gap-1"><img src='image/pollgreen.png' className='w-[12px] h-[12px] mt-[2px]'/><span>21.33%</span></td>
-                        <td className="px-6 py-4 whitespace-nowrap">Kathryn Murphy</td>
-                        <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D]">Kathryn Murphy</td>
-                    </tr>
-                    <tr>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#007B8D]">عرض</td>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D] flex flex-row gap-1"><img src='image/pollgreen.png' className='w-[12px] h-[12px] mt-[2px]'/><span>21.33%</span></td>
-                        <td className="px-6 py-4 whitespace-nowrap">Kathryn Murphy</td>
-                        <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D]">Kathryn Murphy</td>
-                    </tr>
-                    <tr>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#007B8D]">عرض</td>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D] flex flex-row gap-1"><img src='image/pollgreen.png' className='w-[12px] h-[12px] mt-[2px]'/><span>21.33%</span></td>
-                        <td className="px-6 py-4 whitespace-nowrap">Kathryn Murphy</td>
-                        <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D]">Kathryn Murphy</td>
-                    </tr>
-                    <tr>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#007B8D]">عرض</td>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D] flex flex-row gap-1"><img src='image/pollgreen.png' className='w-[12px] h-[12px] mt-[2px]'/><span>21.33%</span></td>
-                        <td className="px-6 py-4 whitespace-nowrap">Kathryn Murphy</td>
-                        <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D]">Kathryn Murphy</td>
-                    </tr>
-                    <tr>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#007B8D]">عرض</td>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D] flex flex-row gap-1"><img src='image/pollgreen.png' className='w-[12px] h-[12px] mt-[2px]'/><span>21.33%</span></td>
-                        <td className="px-6 py-4 whitespace-nowrap">Kathryn Murphy</td>
-                        <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D]">Kathryn Murphy</td>
-                    </tr>
-                    <tr>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#007B8D]">عرض</td>
-                    <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D] flex flex-row gap-1"><img src='image/pollgreen.png' className='w-[12px] h-[12px] mt-[2px]'/><span>21.33%</span></td>
-                        <td className="px-6 py-4 whitespace-nowrap">Kathryn Murphy</td>
-                        <td className="px-6 py-4 whitespace-nowrap font-[400] text-[14px] text-[#14213D]">Kathryn Murphy</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                <tbody className="bg-white divide-y  divide-gray-200">
+        {questions.map((question, index) => (
+          <tr key={index}>
+            <td className="px-[6rem] py-[1rem] whitespace-nowrap font-[400] text-[14px] text-[#007B8D]" onClick={() => handleShowClick(question)} style={{ cursor: 'pointer' }}>{question.show}</td>
+            <td className="px-[6rem] py-[1rem] whitespace-nowrap font-[400] text-[14px] text-[#007B8D]">{question.info}</td>
+            <td className="px-[6rem] py-[1rem]  whitespace-nowrap font-[400] text-[14px] text-[#14213D] flex flex-row gap-1">
+              <img src='image/pollgreen.png' className='w-[12px] h-[12px] mt-[2px]' alt="poll" />
+              <span>{question.percentage}</span>
+            </td>
+            <td className="px-[6rem] py-[1rem] whitespace-nowrap font-[400] text-[14px] text-[#14213D]">{question.numberofquestion}</td>
+            <td className="px-[6rem] py-[1rem] whitespace-nowrap font-[400] text-[14px] text-[#727272]">{question.nickname}</td>
+          </tr>
+        ))}
+      </tbody>
+      </table>
+    </div>
     </div>
     </div>
    </div>
+   </div>    
+   </div>
+   <Modal 
+    isOpen={isModalOpen} 
+    onClose={() => setIsModalOpen(false)} 
+    question={selectedQuestion} 
+    />
   </div>
-         
-      </div>
-    </div>
   )
 }
 

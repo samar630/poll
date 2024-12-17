@@ -9,7 +9,7 @@ const Finish = () => {
   return (
     <div className='relative'>
      <div className=' absolute w-[456px] h-[456px] top-[197px] left-[813px]'>
-      <img src='/image/finishstep.png' />
+      <img src='/image/finishstep.png'  />
      </div>
      <div className=' absolute top-[653px] left-[892px] flex flex-col '>
       <span className='w-[205px] h-[90px] font-[600] text-[48px] text-[#007B8D]'>تم الإنتهاء </span>

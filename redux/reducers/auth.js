@@ -22,8 +22,34 @@ const reducerLogin = (state = initialState, {type, payload}) => {
         return state
     }
   }
+  const reducerSolve = (state = initialState, {type, payload}) => {
+    console.log(payload?.data, "payload")
+      switch(type) {
+        case 'CREATE_SOLVE':
+          return {
+            ...state,
+          data: payload?.data,
+          }
+        default:
+          return state
+      }
+    }
+  const fetchPoll = (state = initialState, {type, payload}) => {
+    console.log(payload?.data, "payload")
+      switch(type) {
+        case 'FETCH_POLL':
+          return {
+            ...state,
+          data: payload?.data
+          }
+        default:
+          return state
+      }
+    }
   const rootReducer = combineReducers({
     user: reducerLogin,
+    poll: fetchPoll,
+    solve : reducerSolve
   });
   
   export default rootReducer;
