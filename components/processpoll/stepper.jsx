@@ -2,6 +2,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Step from './step';
 import Process from './step_proccess';
+import Info from './info';
+import Pollask from './pollask';
+import Finish from './finish';
 const Stepper = ({ steps, currentStepNumber, handleClick}) => {
 	const [stepperSteps, setStep] = useState([]);
 	const stepsStateRef = useRef();
@@ -61,31 +64,19 @@ const Stepper = ({ steps, currentStepNumber, handleClick}) => {
 		}
 		return newSteps
 	}
-	
-
 	useEffect(() =>{
 	 console.log(currentStepNumber , "currentStepNumber")
 	 },[currentStepNumber])
 	return (
 		<div className=' flex flex-row'>
-		  <div className='h-[1160px]  w-[560px] '>
-			{currentStepNumber === 1 ?
-			 <img src='/image/questions.png' className='h-[1160px]  w-[560px] ' /> : 
-			 currentStepNumber ===2 ? <img src='/image/step2.png' className='h-[1160px]  w-[560px] ' /> : 
-			 <img src='/image/step3.png' className='h-[1160px]  w-[560px] ' />  }
-          </div>
 		  <div className='flex flex-col'>
 		  <Process 
 				steps={steps}
 				currentStepNumber={currentStepNumber}
 				handleClick={handleClick}
 			 />
-		    <div className='flex flex-col '>
-				<Step 	handleClick={handleClick} 
-				  currentStepNumber={currentStepNumber}  />
-			</div>
 		  </div>
-			</div>
+		</div>
 	
        
 	

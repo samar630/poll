@@ -1,9 +1,8 @@
-
+"use client"
 import React, { useEffect, useRef, useState } from 'react'
 const Process= ({ steps, currentStepNumber, handleClick}) => {
     const [stepperSteps, setStep] = useState([]);
 	const stepsStateRef = useRef();
-	const array_image = ['/image/questions.png','/image/poll.png', '/image/finish.png']
    useEffect(() => {
 		const stepsState = steps.map((step, index) => {
 			const stepObj = {};

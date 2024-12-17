@@ -1,8 +1,10 @@
 "use client"
+import { useRouter } from 'next/navigation';
 import { solvepoll } from '../../redux/api/auth';
 import { title } from 'process';
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux';
+
 const initialQuestions  = {
     title: "Math Poll",
     description: "this poll is Math exam",
@@ -194,6 +196,7 @@ const initialQuestions  = {
     ] 
 }
 const Pollask = () => {
+      const router = useRouter();
     const [questions, setQuestions] = useState(initialQuestions.questions);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const handleOptionChange = (index, selectedOption) => {
@@ -208,6 +211,7 @@ const Pollask = () => {
   e.preventDefault();
   try{
     dispatch(solvepoll(initialQuestions))
+    router.push("/questions/finish")
   }
   catch{
     console.log("error solve")

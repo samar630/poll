@@ -1,8 +1,8 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation';
-const Info = ( handleClick, currentStepNumber ) => {
-  const router = useRouter(); 
+const Info = ( handleClick, currentStepNumber, steps ) => {
+  const router = useRouter();
  const [values, setValues] = useState({
     name: "",
     email:"",
@@ -19,10 +19,13 @@ const Info = ( handleClick, currentStepNumber ) => {
 
   const handlesumbit = async (e) =>{
     e.preventDefault();
+    router.push('/questions/poll')
     console.log(values,"valuessssss")
    
   }
-
+useEffect(() =>{
+  console.log(currentStepNumber , "currentStepNumbertest")
+},[currentStepNumber])
   return (
     <>
    <form onSubmit={handlesumbit}  className='flex flex-col'>
@@ -92,7 +95,7 @@ const Info = ( handleClick, currentStepNumber ) => {
     </div>
      </div>
       </div> 
-    <button onClick={() => handleClick("next")} className='h-[68px] bg-[#008F9C] absolute top-[1092px]  w-[1840px] text-[32px] font-[600] text-white'>التالي</button>
+    <button type='submit' className='h-[68px] bg-[#008F9C] absolute top-[1092px]  w-[1840px] text-[32px] font-[600] text-white'>التالي</button>
     </form>
     </>
   

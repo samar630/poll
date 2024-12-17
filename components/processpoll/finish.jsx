@@ -16,7 +16,7 @@ const Finish = () => {
       <p className='w-[134px] h-[34px] font-[400] text-[18px] text-[#000000] ml-[2rem]'>شرح عن الأستطلاع</p>
      </div>
      <div>
-      <button onClick={handlesumbit} className='absolute left-0 bottom-0 h-[68px] top-[1092px]  w-[1840px]  bg-[#008F9C] text-[#FFFFFF] text-center'>تم</button>
+      <button onClick={handlesumbit} className='absolute left-0 bottom-0 h-[68px] top-[1092px]  w-[1840px]  bg-[#008F9C] text-[#FFFFFF] text-center text-[32px] font-400'>تم</button>
      </div>
     </div>
   )
