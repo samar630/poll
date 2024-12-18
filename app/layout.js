@@ -13,7 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-      <link rel="icon" href="/image/logo.svg" />
+        <title>استبيان</title>
+        <meta name="استبيان" content="استبيان" />
+      <link rel="icon" href="/list.svg" />
       </head>
       <body>
       <Provider store={store}>

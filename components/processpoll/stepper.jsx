@@ -1,10 +1,7 @@
 "use client"
 import React, { useState, useEffect, useRef } from 'react'
-import Step from './step';
 import Process from './step_proccess';
-import Info from './info';
-import Pollask from './pollask';
-import Finish from './finish';
+
 const Stepper = ({ steps, currentStepNumber, handleClick}) => {
 	const [stepperSteps, setStep] = useState([]);
 	const stepsStateRef = useRef();
